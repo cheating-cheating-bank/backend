@@ -1,5 +1,6 @@
 package com.example.bank.domain.account.entity;
 
+import com.example.bank.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,6 +30,10 @@ public class Account {
     @Column(nullable = false)
     private Long balance; //잔액
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(nullable = false)
+    private User user;
+
     @CreatedDate // insert
     @Column(updatable = false)
     private LocalDateTime createAt; // 생성일시
@@ -42,12 +47,14 @@ public class Account {
                    Long number,
                    Long password,
                    Long balance,
+                   User user,
                    LocalDateTime createAt,
                    LocalDateTime updateAt){
         this.id = id;
         this.number = number;
         this.password = password;
         this.balance = balance;
+        this.user = user;
         this.createAt = createAt;
         this.updateAt = updateAt;
     }

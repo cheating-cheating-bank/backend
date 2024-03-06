@@ -29,12 +29,13 @@ public class Transaction {
     @ManyToOne(fetch = FetchType.LAZY)
     private Account withdrawAccount;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Account depositAccount;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private TransactionEnum gubun;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Account depositAccount;
 
     private Long withdrawAccountBalance; // 잔액변화
 
