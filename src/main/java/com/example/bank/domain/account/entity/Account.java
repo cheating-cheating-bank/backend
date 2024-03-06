@@ -1,6 +1,7 @@
 package com.example.bank.domain.account.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
@@ -36,4 +37,18 @@ public class Account {
     @Column
     private LocalDateTime updateAt; // 수정일시
 
+    @Builder
+    public Account(Long id,
+                   Long number,
+                   Long password,
+                   Long balance,
+                   LocalDateTime createAt,
+                   LocalDateTime updateAt){
+        this.id = id;
+        this.number = number;
+        this.password = password;
+        this.balance = balance;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+    }
 }
