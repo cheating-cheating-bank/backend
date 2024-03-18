@@ -36,7 +36,6 @@ public class Transaction {
     @Column(nullable = false)
     private TransactionEnum gubun;
 
-
     private Long withdrawAccountBalance; // 잔액변화
 
     private Long depositAccountBalance;
