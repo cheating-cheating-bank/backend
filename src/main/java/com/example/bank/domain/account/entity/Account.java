@@ -31,7 +31,6 @@ public class Account {
     private Long balance; //잔액
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(nullable = false)
     private User user;
 
     @CreatedDate // insert
